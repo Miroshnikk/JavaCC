@@ -1,0 +1,26 @@
+//Task1
+List <Product> result = productRepo.findAll()
+.stream
+.filter(p -> p.getProduct().equalseIgnoreCase("Children"))
+.collect(Collectors.toList())
+
+//Task2
+List <Product> result = productRepo.findAll()
+.stream
+.filter(p -> p.getCategory().equalseIgnoreCase("Toy"))
+.map(e -> e.getPrice() * 0.1);
+
+
+//Task3
+List<Product> result = orderRepo.findAll()
+.stream
+.filter(s -> s.getStatus() = 2)
+.filter(o -> o.getOrderDate().compareTo(LocalDate.of(2011, 02, 01)) > 0 )
+.filter(d -> d.getDeliveryDate().compareTo(LocalDate.of(2022, 04, 01)) < 0 )
+.flatMap(e -> e.getProducts().different());
+
+//Task4
+List<Double> numbers = productRepo.findAll()
+.stream
+.filter(p -> p.getCategory().equalseIgnoreCase("Book"))
+.flatMap(n -> n.summaryStatistics())
